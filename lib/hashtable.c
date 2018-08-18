@@ -778,10 +778,10 @@ static int drop_var_from_set(const char *name, int nvars, char * vars[])
 
 int himport_r(struct hsearch_data *htab,
 		const char *env, size_t size, const char sep, int flag,
-		int crlf_is_lf, int nvars, char * const vars[])
+		int crlf_is_lf, unsigned int nvars, char * const vars[])
 {
 	char *data, *sp, *dp, *name, *value;
-	char *localvars[nvars];
+	char *localvars[nvars ? : 1];
 	int i;
 
 	/* Test for correct arguments.  */
