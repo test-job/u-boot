@@ -1136,7 +1136,7 @@ int mmc_getcd(struct mmc *mmc)
 #endif
 
 #if !CONFIG_IS_ENABLED(MMC_TINY)
-static int sd_switch(struct mmc *mmc, int mode, int group, u8 value, u8 *resp)
+static int sd_switch(struct mmc *mmc, uint mode, int group, u8 value, u8 *resp)
 {
 	struct mmc_cmd cmd;
 	struct mmc_data data;
