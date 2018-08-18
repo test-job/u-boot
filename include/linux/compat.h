@@ -11,6 +11,9 @@ typedef struct unused unused_t;
 
 struct p_current{
        int pid;
+#ifdef CONFIG_UBSAN
+	unsigned int in_ubsan;
+#endif
 };
 
 extern struct p_current *current;

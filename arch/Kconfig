@@ -54,6 +54,7 @@ config NIOS2
 
 config PPC
 	bool "PowerPC architecture"
+	select ARCH_HAS_UBSAN_SANITIZE_ALL
 	select HAVE_PRIVATE_LIBGCC
 	select SUPPORT_OF_CONTROL
 	select SYS_BOOT_GET_CMDLINE
@@ -65,6 +66,7 @@ config RISCV
 
 config SANDBOX
 	bool "Sandbox"
+	select ARCH_HAS_UBSAN_SANITIZE_ALL
 	select BOARD_LATE_INIT
 	select DM
 	select DM_GPIO
@@ -98,6 +100,7 @@ config SH
 
 config X86
 	bool "x86 architecture"
+	select ARCH_HAS_UBSAN_SANITIZE_ALL
 	select CREATE_ARCH_SYMLINK
 	select DM
 	select DM_PCI

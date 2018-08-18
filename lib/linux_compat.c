@@ -4,6 +4,9 @@
 
 struct p_current cur = {
 	.pid = 1,
+#ifdef CONFIG_UBSAN
+	.in_ubsan = 0,
+#endif
 };
 __maybe_unused struct p_current *current = &cur;
 
