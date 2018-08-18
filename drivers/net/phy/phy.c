@@ -719,13 +719,13 @@ static struct phy_device *search_for_existing_phy(struct mii_dev *bus,
 {
 	/* If we have one, return the existing device, with new interface */
 	while (phy_mask) {
-		int addr = ffs(phy_mask) - 1;
+		unsigned int addr = ffs(phy_mask) - 1;
 
 		if (bus->phymap[addr]) {
 			bus->phymap[addr]->interface = interface;
 			return bus->phymap[addr];
 		}
-		phy_mask &= ~(1 << addr);
+		phy_mask &= ~(1UL << addr);
 	}
 	return NULL;
 }
