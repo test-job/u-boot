@@ -21,13 +21,13 @@ enum {
 	PINMUX_TYPE_INPUT,
 };
 
-#define SH_PFC_PIN_CFG_INPUT		(1 << 0)
-#define SH_PFC_PIN_CFG_OUTPUT		(1 << 1)
-#define SH_PFC_PIN_CFG_PULL_UP		(1 << 2)
-#define SH_PFC_PIN_CFG_PULL_DOWN	(1 << 3)
-#define SH_PFC_PIN_CFG_IO_VOLTAGE	(1 << 4)
-#define SH_PFC_PIN_CFG_DRIVE_STRENGTH	(1 << 5)
-#define SH_PFC_PIN_CFG_NO_GPIO		(1 << 31)
+#define SH_PFC_PIN_CFG_INPUT		BIT(0)
+#define SH_PFC_PIN_CFG_OUTPUT		BIT(1)
+#define SH_PFC_PIN_CFG_PULL_UP		BIT(2)
+#define SH_PFC_PIN_CFG_PULL_DOWN	BIT(3)
+#define SH_PFC_PIN_CFG_IO_VOLTAGE	BIT(4)
+#define SH_PFC_PIN_CFG_DRIVE_STRENGTH	BIT(5)
+#define SH_PFC_PIN_CFG_NO_GPIO		BIT(31)
 
 struct sh_pfc_pin {
 	u16 pin;
