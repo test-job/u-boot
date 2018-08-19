@@ -2230,7 +2230,7 @@ static int mmc_startup(struct mmc *mmc)
 	}
 
 	/* divide frequency by 10, since the mults are 10x bigger */
-	freq = fbase[(cmd.response[0] & 0x7)];
+	freq = fbase[(cmd.response[0] & 0x3)];
 	mult = multipliers[((cmd.response[0] >> 3) & 0xf)];
 
 	mmc->legacy_speed = freq * mult;
