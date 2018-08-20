@@ -73,12 +73,12 @@
 #define RAVB_RX_QUEUE_OFFSET		4
 
 #define RAVB_DESC_DT(n)			((n) << 28)
-#define RAVB_DESC_DT_FSINGLE		RAVB_DESC_DT(0x7)
-#define RAVB_DESC_DT_LINKFIX		RAVB_DESC_DT(0x9)
-#define RAVB_DESC_DT_EOS		RAVB_DESC_DT(0xa)
-#define RAVB_DESC_DT_FEMPTY		RAVB_DESC_DT(0xc)
-#define RAVB_DESC_DT_EEMPTY		RAVB_DESC_DT(0x3)
-#define RAVB_DESC_DT_MASK		RAVB_DESC_DT(0xf)
+#define RAVB_DESC_DT_FSINGLE		RAVB_DESC_DT(0x7UL)
+#define RAVB_DESC_DT_LINKFIX		RAVB_DESC_DT(0x9UL)
+#define RAVB_DESC_DT_EOS		RAVB_DESC_DT(0xaUL)
+#define RAVB_DESC_DT_FEMPTY		RAVB_DESC_DT(0xcUL)
+#define RAVB_DESC_DT_EEMPTY		RAVB_DESC_DT(0x3UL)
+#define RAVB_DESC_DT_MASK		RAVB_DESC_DT(0xfUL)
 
 #define RAVB_DESC_DS(n)			(((n) & 0xfff) << 0)
 #define RAVB_DESC_DS_MASK		0xfff
@@ -342,8 +342,8 @@ static int ravb_write_hwaddr(struct udevice *dev)
 	struct eth_pdata *pdata = dev_get_platdata(dev);
 	unsigned char *mac = pdata->enetaddr;
 
-	writel((mac[0] << 24) | (mac[1] << 16) | (mac[2] << 8) | mac[3],
-	       eth->iobase + RAVB_REG_MAHR);
+	writel(((u32)mac[0] << 24) | ((u32)mac[1] << 16) | ((u32)mac[2] << 8) |
+	       mac[3], eth->iobase + RAVB_REG_MAHR);
 
 	writel((mac[4] << 8) | mac[5], eth->iobase + RAVB_REG_MALR);
 
