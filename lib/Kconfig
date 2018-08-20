@@ -375,6 +375,7 @@ endmenu
 
 source lib/efi/Kconfig
 source lib/efi_loader/Kconfig
+source lib/Kconfig.ubsan
 source lib/optee/Kconfig
 
 endmenu

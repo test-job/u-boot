@@ -6,6 +6,7 @@ config SYS_ARCH
 
 config ARM64
 	bool
+	select ARCH_HAS_UBSAN_SANITIZE_ALL
 	select PHYS_64BIT
 	select SYS_CACHE_SHIFT_6
 

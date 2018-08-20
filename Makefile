@@ -391,7 +391,7 @@ export MAKE LEX YACC AWK PERL PYTHON PYTHON2 PYTHON3
 export HOSTCXX HOSTCXXFLAGS CHECK CHECKFLAGS DTC DTC_FLAGS
 
 export KBUILD_CPPFLAGS NOSTDINC_FLAGS UBOOTINCLUDE OBJCOPYFLAGS LDFLAGS
-export KBUILD_CFLAGS KBUILD_AFLAGS
+export KBUILD_CFLAGS KBUILD_AFLAGS CFLAGS_UBSAN
 
 # When compiling out-of-tree modules, put MODVERDIR in the module
 # tree rather than in the kernel tree. The kernel tree might
@@ -648,6 +648,7 @@ endif
 KBUILD_CFLAGS   += $(call cc-option,-Werror=date-time)
 
 include scripts/Makefile.extrawarn
+include scripts/Makefile.ubsan
 
 # Add user supplied CPPFLAGS, AFLAGS and CFLAGS as the last assignments
 KBUILD_CPPFLAGS += $(KCPPFLAGS)

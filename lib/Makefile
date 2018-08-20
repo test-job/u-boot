@@ -18,6 +18,9 @@ obj-$(CONFIG_CMD_DHRYSTONE) += dhry/
 obj-$(CONFIG_ARCH_AT91) += at91/
 obj-$(CONFIG_OPTEE) += optee/
 
+obj-$(CONFIG_UBSAN) += ubsan.o
+UBSAN_SANITIZE_ubsan.o := n
+
 obj-$(CONFIG_AES) += aes.o
 obj-y += charset.o
 obj-$(CONFIG_USB_TTY) += circbuf.o
