@@ -337,7 +337,7 @@ static int array_search(int *array, int count, int key)
 static int sort_array_by_ordering(int *dest, int count, int *order,
 				   int ocount)
 {
-	int temp[count];
+	int temp[count ? : 1];
 	int dest_count;
 	int same;	/* number of elements which are the same */
 	int i;
@@ -509,7 +509,7 @@ static int input_keycodes_to_ascii(struct input_config *config,
 static int _input_send_keycodes(struct input_config *config, int keycode[],
 				int num_keycodes, bool do_send)
 {
-	char ch[num_keycodes * ANSI_CHAR_MAX];
+	char ch[(num_keycodes * ANSI_CHAR_MAX) ? : 1];
 	int count, i, same = 0;
 	int is_repeat = 0;
 	unsigned delay_ms;
